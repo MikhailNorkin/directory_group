@@ -37,3 +37,13 @@ import csv
 #         writer.writerow(['id', 'Фамилия', 'Имя', 'Отчество', 'Тип_телефона', 'Номер_телефона', 'Комментарий'])
 
 # add_contact()
+
+# Выод стартового меню в консоль
+def reading_menu():
+    with open('menu_start.txt', 'r', encoding='utf-8') as txtfile:
+        for line in txtfile:
+            print(line.rstrip())
+
+reading_menu()
+
+
