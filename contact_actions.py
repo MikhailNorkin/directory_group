@@ -20,14 +20,20 @@ import csv
 #             count += 1
 #         print(f'Всего в файле {count + 1} строк.')
 
+
+# # Чтение из файла (Открыть контакт) ? как открыть выборочно?
+# def reading_contact():
+#     with open('contacts.csv', newline = '', encoding='utf-8') as csvfile:
+#         reader = csv.DictReader(csvfile, delimiter=',')
+#         for row in reader:
+#             print(row['id'], row['Фамилия'], row['Имя'], row['Отчество'], row['Тип_телефона'], row['Номер_телефона'], row['Комментарий'])
+
+# reading_contact()
+        
+# # Запись в файл (Добавить контакт) ? Добавить id контакта и пустые вводы
+# def add_contact():
+#     with open('contacts.csv', 'a', newline='', encoding='utf-8') as csvfile:
+#         writer = csv.writer(csvfile, delimiter=',')
+#         writer.writerow(['id', 'Фамилия', 'Имя', 'Отчество', 'Тип_телефона', 'Номер_телефона', 'Комментарий'])
+
 # add_contact()
-
-with open('contacts.csv', newline = '', encoding='utf-8') as csvfile:
-    reader = csv.DictReader(csvfile, delimiter=',')
-    for row in reader:
-        print(row['Имя'], row['Тип_телефона'], row['Номер_телефона'], row['Комментарий'])
-
-        
-
-
-        
