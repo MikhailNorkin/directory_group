@@ -4,6 +4,7 @@ def add_contact():
     '''
     Добавление контакта 
     '''
+    
     with open("classmates.csv", encoding='utf-8') as data:
         # Создаем объект DictReader, указываем символ-разделитель ","
         file_reader = csv.DictReader(data, delimiter = ",")
