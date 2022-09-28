@@ -21,29 +21,24 @@ import csv
 #         print(f'Всего в файле {count + 1} строк.')
 
 
-# # Чтение из файла (Открыть контакт) ? как открыть выборочно?
-# def reading_contact():
-#     with open('contacts.csv', newline = '', encoding='utf-8') as csvfile:
-#         reader = csv.DictReader(csvfile, delimiter=',')
-#         for row in reader:
-#             print(row['id'], row['Фамилия'], row['Имя'], row['Отчество'], row['Тип_телефона'], row['Номер_телефона'], row['Комментарий'])
+# Чтение из файла (Открыть контакт) ? как открыть выборочно?
+def reading_contact():
+    '''
+    чтение из файла
+    '''
+    with open('contacts.csv', newline = '', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile, delimiter=',')
+        for row in reader:
+            print(row['id'], row['Фамилия'], row['Имя'], row['Отчество'], row['Тип_телефона'], row['Номер_телефона'], row['Комментарий'])
 
-# reading_contact()
         
-# # Запись в файл (Добавить контакт) ? Добавить id контакта и пустые вводы
-# def add_contact():
-#     with open('contacts.csv', 'a', newline='', encoding='utf-8') as csvfile:
-#         writer = csv.writer(csvfile, delimiter=',')
-#         writer.writerow(['id', 'Фамилия', 'Имя', 'Отчество', 'Тип_телефона', 'Номер_телефона', 'Комментарий'])
-
-# add_contact()
-
-# Выод стартового меню в консоль
-def reading_menu():
-    with open('menu_start.txt', 'r', encoding='utf-8') as txtfile:
-        for line in txtfile:
-            print(line.rstrip())
-
-reading_menu()
+# Запись в файл (Добавить контакт) ? Добавить id контакта и пустые вводы
+def add_contact():
+    '''
+    запись в файл
+    '''
+    with open('contacts.csv', 'a', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',')
+        writer.writerow(['id', 'Фамилия', 'Имя', 'Отчество', 'Тип_телефона', 'Номер_телефона', 'Комментарий'])
 
 
