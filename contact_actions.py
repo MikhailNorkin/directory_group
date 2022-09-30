@@ -67,10 +67,10 @@ def add_contact():
     names = write_unit("Введите имя: ")
     patronymic = write_unit("Введите отчество: ")
     tel_type = write_tel_type("Введите тип номера телефона (1,2,3): ");
-    tel_number = write_unit("Введите номер телефона: ")
-    tel_comment = write_unit("Введите комментарий: ")
+
     type_dict = {'Сотовый' : 1, 'Рабочий' :2, 'Домашиний':3}
 
+    #Проверяем есть ли такой человек и тип телефона в справочнике
     with open('contacts.csv', 'r', newline='', encoding='utf-8') as csvfile:
         # Создаем объект DictReader, указываем символ-разделитель ","
         file_reader = csv.DictReader(csvfile, delimiter = ",")
@@ -87,10 +87,11 @@ def add_contact():
             patronymic_found = row["Отчество"]
             tel_type_found = type_dict[row["Тип"]]
             tel_number_found = row["Телефон"]
-            if surname == surname_found and names == names_found and patronymic == patronymic_found and type_dict[tel_type] == type_dict[row["Тип"]]\
-            and tel_number == tel_number_found:
+            if surname == surname_found and names == names_found and patronymic == patronymic_found and type_dict[tel_type] == type_dict[row["Тип"]]:
                 print("Такая запись существует")
             count += 1    
+    #tel_number = write_unit("Введите номер телефона: ")
+    #tel_comment = write_unit("Введите комментарий: ")
 
         # print(f'Всего в файле {count + 1} строк.')
 
