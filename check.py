@@ -26,6 +26,42 @@ def check_number_operation(input_string: Optional[str]) -> Optional[int]:
                   '\nНеверный ввод данных! Должно быть целое число от 1 до 6 включительно!')
 
 
+def check_confirm_operation(input_string: Optional[str]) -> Optional[int]:
+    '''
+    Функция проверки на целое число от 1 до 6.
+    '''
+    while type:
+        print(Fore.BLUE + Back.WHITE)
+        number_oper = input(input_string)
+        try:
+            number_oper = int(number_oper)
+            if 0 < number_oper < 3:
+                return number_oper
+            else:
+                print(Fore.GREEN + Back.RED +
+                      '\nНеверный ввод данных! Должно быть целое число: 1 или 2!')
+                print(Fore.BLUE + Back.WHITE)
+                number_oper = input(input_string)
+                continue
+        except ValueError:
+            print(Fore.GREEN + Back.RED +
+                  '\nНеверный ввод данных! Должно быть целое число: 1 или 2!')
+
+
+def check_double_surname(text):
+    while len(text) > 40:
+        print(Fore.GREEN + Back.RED)
+        text = input(
+            'Слишком много символов! Допустимо не более 40. Повторите ввод:\n')
+    else:
+        if re.match('^[а-яёА-ЯЁ]{2,}[-][а-яёА-ЯЁ]{2,}$', text) != None:
+            text_list = text.split('-')
+        for i in range(0, len(text_list)):
+            text_list[i] = text_list[i].capitalize()
+        text = '-'.join(text_list)
+        return text
+
+
 def check_textfield(text, optional=1):
     '''
     Функция проверяет ввод текстового поля (обязательного: optional = 1 (по умолчанию), необязательного: optional = 0).
@@ -38,7 +74,10 @@ def check_textfield(text, optional=1):
                 text = input(
                     'Слишком много символов! Допустимо не более 40. Повторите ввод:\n')
             else:
-                if re.match('^[а-яА-Я]{2,40}$', text) != None or text == '-':
+                if re.match('^[а-яёА-ЯЁ]{2,40}$', text) != None or text == '-':
+                    flag = True
+                    return text
+                elif re.match('^[а-яёА-ЯЁ]{2,}[-][а-яёА-ЯЁ]{2,}$', text) != None:
                     flag = True
                     return text
                 else:
@@ -51,7 +90,10 @@ def check_textfield(text, optional=1):
                 text = input(
                     'Слишком много символов! Допустимо не более 40. Повторите ввод:\n')
             else:
-                if re.match('^[а-яА-Я]{2,40}$', text) != None:
+                if re.match('^[а-яёА-ЯЁ]{2,40}$', text) != None:
+                    flag = True
+                    return text
+                elif re.match('^[а-яёА-ЯЁ]{2,}[-][а-яёА-ЯЁ]{2,}$', text) != None:
                     flag = True
                     return text
                 else:
@@ -99,7 +141,6 @@ def check_mobile(text):
                 'Некорректный ввод! Слишком мало или слишком много символов, либо введены буквы / неверные цифры вначале. Номер телефона заполняйте только из цифр (допустимо указать "+7" в начале). Наберите заново:\n')
         try:
             int(text)
-            print(text, 111)
             flag = True
             return text
         except ValueError:

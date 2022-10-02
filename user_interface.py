@@ -3,6 +3,15 @@ from colorama import *
 init()
 
 
+def confirm_operation():
+    '''
+    Функция получает номер опреации и проверяет его на корректность.
+    '''
+    operation = ch.check_confirm_operation(
+        'Подтверждаете выполнение операции? \n 1 - Да (Подтверждаю) \n 2 - Нет (Отклоняю) \n')
+    return operation
+
+
 def input_data(data):
     print(Fore.GREEN + Back.YELLOW)
     f = input(
@@ -23,9 +32,8 @@ def print_instructions_for_input():
 
 def get_operation():
     '''
-    Функция получает номер опреации и проверяет его на корректность.
+    Функция получает номер операции и проверяет его на корректность.
     '''
     operation = ch.check_number_operation(
         'Какую операцию вы хотите выполнить? \n 1 - Открыть текущий справочник (вывод в консоль) \n 2 - Добавить новую запись \n 3 - Удалить запись \n 4 - Поиск записи (вывод в консоль) \n 5 Импорт из json \n 6 Экспорт в json\n')
-    # log.operation_logger(operation_a_b)
     return operation
