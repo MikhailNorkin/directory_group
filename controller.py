@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import contact_actions as ca
 import contact_guide as cg
 
@@ -30,4 +30,4 @@ def button_click():
     elif operation == 6:
         print('Функция в стадии разработки.')
     # ui.view_result(result)
->>>>>>> d8fc36276e55be83aca1ef67d8b32d868f6596c6
+

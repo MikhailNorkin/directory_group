@@ -1,8 +1,8 @@
 import controller as c
-<<<<<<< HEAD
+
  
 c.button_click()
-=======
+
 from colorama import *
 
 while True:
@@ -15,4 +15,4 @@ while True:
         break
     else:
         c.button_click()
->>>>>>> d8fc36276e55be83aca1ef67d8b32d868f6596c6
+
